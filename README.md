@@ -35,7 +35,7 @@ Example 2
     globj = ctx.get_global_object
     globj.Ruby = Object
 
-    JS.execute_script ctx,<<EOJS
+    JS.execute_script ctx,<<-EOJS
       function add(a,b) {
         return a+b;
       };
