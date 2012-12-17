@@ -330,6 +330,10 @@ module JS
       end
     end
   
+    def to_str
+      inspect
+    end
+  
     def each_pair
       each do |n| yield(n,self[n]) end
     end
