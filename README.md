@@ -10,7 +10,7 @@ ABOUT
     We've broken out of DOM and WebView and only require JavaScriptCore.
      
     Allows Ruby and JavaScript to share API's in any application.
-    *Useful side-effect: JavaScript gets bound to any ruby binding*
+    <em>Useful side-effect: JavaScript gets bound to any ruby binding</em>
     
     Write command-line ruby applications leveraging javascript
     Write command-line apps in javascript
