@@ -9,16 +9,16 @@ ABOUT
     
     
 Example
----ruby
+```ruby
     require 'rubygems'
     require 'JS/base'
     ctx = JS::GlobalContext.new(nil)
     obj = JS::Object.new(ctx,{:name=>'World',:sayHello=> proc do |t,n| "hello #{n}" end})
     p a = JS.execute_script(ctx,'this.sayHello(this.name);',obj) #=> "hello World"
     p a == obj.sayHello(obj.name) #=> true
-
+```
 Example 2 
----ruby
+```ruby
     # Example demonstrating JavaScript calls to Ruby
     # Any binding for ruby is available for use by javascript
     # MIT License
@@ -46,3 +46,4 @@ Example 2
     EOJS
 
     puts globj.add 1,2
+```
