@@ -25,8 +25,8 @@ p __FILE__
 #		SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # 
 
+require File.expand_path('test_helper.rb', File.dirname(__FILE__))
 
-require File.join(File.dirname(__FILE__),'..','lib','JS')
 p :ddddddddddddd
 def all_true ary
   val = 1
