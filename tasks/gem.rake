@@ -1,24 +1,24 @@
 namespace :gem do
 	desc "creates a rubygems .gem"
 	task :build do
-	  sh %{gem build ruby_js.gemspec}
+	  sh %{gem build ruby_ffi-javascriptcore.gemspec}
 	end
 
-	desc "remove ruby_js-[version] installation from rubygems"
+	desc "remove ruby_ffi-javascriptcore-[version] installation from rubygems"
 	task :remove do
-	  sh %{gem uni ruby_js} if `gem list -d ruby_js`.split("\n").map do |l| l !~ /ruby_js/ end.index(false)
+	  sh %{gem uni ruby_ffi-javascriptcore} if `gem list -d ruby_ffi-javascriptcore`.split("\n").map do |l| l !~ /ruby_ffi-javascriptcore/ end.index(false)
 	end
 
     desc "installs the gem to rubygems"
 	task "install" do
-      sh %{gem i ruby_js*.gem}
+      sh %{gem i ruby_ffi-javascriptcore*.gem}
 	end
 	
-	desc "remove local ./ruby_js-*.gem"
+	desc "remove local ./ruby_ffi-javascriptcore-*.gem"
 	task :clean do
-	  sh %{rm ruby_js*.gem}
+	  sh %{rm ruby_ffi-javascriptcore*.gem}
 	end
 end
 
-desc "builds and installs gem and removes local ./ruby_js-*.gem"
+desc "builds and installs gem and removes local ./ruby_ffi-javascriptcore-*.gem"
 task :gem => ["gem:build","gem:install","gem:clean"]

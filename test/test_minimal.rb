@@ -1,4 +1,4 @@
-
+p __FILE__
 #       test_minimal.rb
              
 #		(The MIT License)
@@ -27,7 +27,7 @@
 
 
 require File.join(File.dirname(__FILE__),'..','lib','JS')
-
+p :ddddddddddddd
 def all_true ary
   val = 1
   ary.map do |q| n = 0; n = 1 if q; val = n * val end 
@@ -42,9 +42,9 @@ def find_failed(ary)
   end
   tis.map do |i| i+1 end
 end
-
+p :rrrrrrrr
 ctx = JS::GlobalContext.new(nil)
-
+p :qqqqqqqqqqqq
 gobj = ctx.get_global_object
 
 
@@ -56,6 +56,8 @@ my_obj.set_property("testString",'aString')
 ary << ('aString' == my_obj.get_property("testString"))
 ary << (my_obj.copy_property_names.get_name_at_index(0) == "testString")
 ary << (my_obj.copy_property_names.get_count == 1)
+
+p :fffffffff
 
 my_obj["testNumber"] = 1979.05
 ary << (1979.05 == my_obj.get_property("testNumber"))
@@ -69,6 +71,8 @@ ary << (:undefined == my_obj["testUndefined"])
 my_obj.set_property("testNull",nil)
 ary << !my_obj.get_property("testNull")
 
+p :gggg
+
 fun = JS::Object.make_function_with_callback(ctx,'sumOf') do |this,*args|
   sum = 0
   args.each do |a|
@@ -77,7 +81,7 @@ fun = JS::Object.make_function_with_callback(ctx,'sumOf') do |this,*args|
   
   sum # in jscript: return sum;
 end
-
+p :wwwwww
 ary << (fun.is_function == true)
 
 ary << (fun.call(1,2.98) == 3.98)
@@ -87,7 +91,7 @@ gobj.set_property('sumOf',fun)
 val = JS.execute_script(ctx,"this.sumOf(1,2.98);")
 
 ary << (val == 3.98)
-
+p :eeek
 if all_true(ary)
   puts "#{File.basename(__FILE__)} passed"
 else
