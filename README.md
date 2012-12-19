@@ -25,7 +25,7 @@ ABOUT
     
     This is essentially the basis for a suite of HTML5 related libraries for ruby.
     
-Example
+Example - Low Level minimal usage
 ```ruby
     require 'rubygems'
     require 'JS/base'
@@ -34,7 +34,7 @@ Example
     p a = JS.execute_script(ctx,'this.sayHello(this.name);',obj) #=> "hello World"
     p a == obj.sayHello(obj.name) #=> true
 ```
-Example 2 
+Example 2 - JavaScript calling ruby
 ```ruby
     # Example demonstrating JavaScript calls to Ruby
     # Any binding for ruby is available for use by javascript
@@ -63,4 +63,20 @@ Example 2
     EOJS
 
     puts globj.add 1,2
+```
+Example3 - JavaScript Object creation using JSON syntax in ruby1.9
+```ruby
+require "JS/base"
+ctx = JS::GlobalContext.new(nil)
+globj = ctx.get_global_object
+
+globj.foo = {
+  bar:1,
+  foo:2,
+  baz:proc do
+    p :in_baz
+  end,
+  p:method(:p)
+} #=> JS::Object#
+
 ```
